@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Izhar Ahmad · Embedded Engineer</title>
+<meta name="description" content="Izhar Ahmad, embedded engineer from Peshawar: a hand-built CubeSat, three student engineering teams, and firmware close to the silicon.">
+<meta name="author" content="Izhar Ahmad">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Izhar Ahmad · Embedded Engineer">
+<meta property="og:description" content="Izhar Ahmad, embedded engineer from Peshawar: a hand-built CubeSat, three student engineering teams, and firmware close to the silicon.">
+<meta property="og:image" content="https://izharahmad805.github.io/portfolio/assets/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231E7558'/%3E%3Cpath d='M3 16 Q7 6 11 16 T19 16 T29 16' fill='none' stroke='white' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600&display=swap">
+<style>
+/* Layout: a photo-led personal story. Big serif headlines, generous photos, zig-zag chapters; one phosphor-green scope trace as the quiet signature. */
+:root{
+  --bg:#F4F5F1; --surface:#FFFFFF; --ink:#18211D; --soft:#55625C; --line:#DCE1DB;
+  --accent:#1E7558; --warm:#C9852C; --todo:#B5612A; --shade:rgba(16,24,20,.06);
+  --f-display:"Instrument Serif", "Iowan Old Style", Georgia, serif;
+  --f-body:"Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#0F1513; --surface:#161E1B; --ink:#E8EEEA; --soft:#9AA8A1; --line:#26312C;
+  --accent:#62D2A7; --warm:#E3A651; --todo:#E59262; --shade:rgba(0,0,0,.35); color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#0F1513; --surface:#161E1B; --ink:#E8EEEA; --soft:#9AA8A1; --line:#26312C;
+  --accent:#62D2A7; --warm:#E3A651; --todo:#E59262; --shade:rgba(0,0,0,.35); color-scheme:dark }
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:1.0625rem;line-height:1.7;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:1140px;margin:0 auto}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+img,video{max-width:100%}
+p{margin:0;max-width:62ch}
+
+h1,h2,h3{font-family:var(--f-display);font-weight:400;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h2{font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.02}
+h3{font-size:clamp(1.6rem,3vw,2.1rem);line-height:1.08}
+em{font-style:italic}
+.kicker{font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--soft)}
+
+.fill{color:var(--todo);text-decoration:underline dotted;text-underline-offset:3px}
+.draft{font-size:.78rem;color:var(--todo);padding-block:12px;text-align:right}
+
+.ph{display:block;width:100%;height:100%;object-fit:cover;border-radius:14px;background:var(--line)}
+video.ph{background:#000}
+figure{margin:0;min-width:0}
+figcaption{font-family:var(--f-display);font-style:italic;font-size:1rem;color:var(--soft);margin-top:8px;line-height:1.35}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:end;padding-block:40px 32px}
+.hero > *{min-width:0}
+.hero h1{font-size:clamp(3.6rem,10vw,8rem);line-height:.9;letter-spacing:-.02em}
+.hero h1 span{display:block;font-style:italic;color:var(--accent)}
+.hero .intro{font-size:1.2rem;margin-top:28px;color:var(--ink)}
+.hero .facts{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:22px;font-size:.92rem;color:var(--soft)}
+.hero .facts b{color:var(--ink);font-weight:600}
+.hero figure .ph{aspect-ratio:4/5;box-shadow:0 30px 60px -30px var(--shade)}
+
+.trace{display:block;width:100%;height:60px;margin-block:8px 0}
+.trace path{fill:none;stroke:var(--accent);stroke-width:1.6;stroke-linecap:round;opacity:.75}
+@media (prefers-reduced-motion:no-preference){
+  .trace path{stroke-dasharray:2600;stroke-dashoffset:0;animation:draw 3s ease-out}
+  @keyframes draw{from{stroke-dashoffset:2600}to{stroke-dashoffset:0}}
+}
+
+/* filmstrip */
+.strip{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(200px,1fr);gap:12px;overflow-x:auto;padding-block:8px 6px;scrollbar-width:thin}
+.strip .ph{aspect-ratio:4/5;border-radius:10px}
+
+/* chapters */
+.chapter{padding-block:96px 0}
+.chapter-head{display:grid;gap:14px;margin-bottom:40px;max-width:760px}
+.chapter-head p{font-size:1.15rem;color:var(--soft)}
+
+/* story */
+.story{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:start}
+.story figure .ph{aspect-ratio:4/5}
+.moments{list-style:none;margin:0;padding:0;display:grid;gap:26px}
+.moments li{display:grid;grid-template-columns:110px minmax(0,1fr);gap:18px;align-items:baseline;border-top:1px solid var(--line);padding-top:18px}
+.moments .when{font-family:var(--f-display);font-style:italic;font-size:1.25rem;color:var(--accent);line-height:1.2}
+.moments h4{font-size:1.05rem;font-weight:600;margin:0 0 4px}
+.moments p{font-size:1rem;color:var(--soft)}
+
+/* feature: cubesat */
+.feature{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:48px;align-items:center}
+.feature .main .ph{aspect-ratio:4/5}
+.feature .text{display:grid;gap:18px}
+.feature .text p{font-size:1.08rem}
+.numbers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 24px;margin-top:8px;padding-top:20px;border-top:1px solid var(--line)}
+.numbers div{display:grid;gap:2px}
+.numbers b{font-family:var(--f-display);font-weight:400;font-size:1.7rem;line-height:1.1;color:var(--ink)}
+.numbers small{font-size:.85rem;color:var(--soft)}
+.mosaic{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:40px}
+.mosaic .tall{grid-row:span 2}
+.mosaic .ph{aspect-ratio:1/1}
+.mosaic .tall .ph{aspect-ratio:auto;height:100%;min-height:0}
+.mosaic figure{display:flex;flex-direction:column}
+.mosaic .tall{display:flex}
+.pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px;margin-top:48px}
+.pair > div{display:grid;gap:10px;align-content:start}
+.pair h4{font-family:var(--f-display);font-weight:400;font-size:1.6rem;margin:0;line-height:1.1}
+.pair p{color:var(--soft)}
+
+/* teams: zig-zag */
+.team{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:56px;align-items:center;margin-top:72px}
+.team:first-of-type{margin-top:0}
+.team.flip .media{order:2}
+.team .media{position:relative}
+.team .media .big{aspect-ratio:4/3}
+.team .media .inset{position:absolute;width:38%;right:-18px;bottom:-28px;border:6px solid var(--bg);border-radius:16px;box-shadow:0 20px 40px -20px var(--shade)}
+.team.flip .media .inset{right:auto;left:-18px}
+.team .media .inset .ph{aspect-ratio:4/5;border-radius:10px}
+.team .text{display:grid;gap:14px}
+.role{font-family:var(--f-display);font-style:italic;font-size:1.3rem;color:var(--accent);line-height:1.2}
+.team .where{font-size:.9rem;color:var(--soft)}
+
+/* bench */
+.bench{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:48px 40px}
+.bench article{display:grid;gap:14px;align-content:start;min-width:0}
+.bench .ph{aspect-ratio:4/3}
+.bench .duo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.bench .duo .ph{aspect-ratio:1/1}
+.bench h4{font-family:var(--f-display);font-weight:400;font-size:1.7rem;margin:0;line-height:1.1}
+.bench p{color:var(--soft)}
+.quiet{background:var(--surface);border-radius:14px;padding:28px;display:grid;gap:12px;align-content:start;align-self:start}
+
+/* community */
+.give{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 48px}
+.give > div{border-top:1px solid var(--line);padding-top:18px;display:grid;gap:8px}
+.give h4{font-size:1.05rem;font-weight:600;margin:0}
+.give p{color:var(--soft)}
+
+/* research */
+.research{background:var(--surface);border-radius:22px;padding:clamp(28px,6vw,72px);display:grid;gap:24px}
+.research blockquote{margin:0;font-family:var(--f-display);font-size:clamp(1.8rem,4vw,3rem);line-height:1.1;max-width:22ch}
+.research blockquote em{color:var(--accent)}
+.research p{font-size:1.08rem}
+
+.commit{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px}
+.commit p + p{margin-top:16px}
+
+.life{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+.life span{background:var(--surface);border-radius:999px;padding:8px 16px;font-size:.95rem}
+.life b{font-weight:600}
+
+/* contact */
+.close{padding-block:110px 40px;display:grid;gap:22px;text-align:left}
+.close h2{font-size:clamp(2.6rem,7vw,5.4rem)}
+.contact{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.addr{font-size:1.1rem;user-select:all;overflow-wrap:anywhere;border-bottom:1px solid var(--line);padding-bottom:4px}
+button{font:inherit;font-weight:600;font-size:.9rem;color:var(--bg);background:var(--ink);border:0;border-radius:999px;padding:10px 18px;cursor:pointer}
+button:hover{background:var(--accent)}
+footer{font-size:.8rem;color:var(--soft);padding-block:24px 40px;border-top:1px solid var(--line)}
+
+@media (max-width:860px){
+  .hero,.story,.feature,.team,.commit{grid-template-columns:1fr;gap:32px}
+  .team.flip .media{order:0}
+  .team .media{margin-bottom:28px}
+  .team .media .inset{right:8px;bottom:-28px;width:34%}
+  .team.flip .media .inset{left:8px}
+  .hero figure{max-width:420px}
+  .bench,.give,.pair{grid-template-columns:1fr}
+  .mosaic{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .mosaic .tall{grid-row:auto}
+  .mosaic .tall .ph{aspect-ratio:1/1;height:auto}
+  .chapter{padding-block:72px 0}
+  .moments li{grid-template-columns:1fr;gap:4px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  
+
+  <header class="hero">
+    <div>
+      <div class="kicker">Embedded engineer · Peshawar, Pakistan</div>
+      <h1 style="margin-top:14px">Izhar Ahmad<span>builds what isn't there yet.</span></h1>
+      <p class="intro">I grew up in a village where if something didn't exist, you made it. I've been taking machines apart since I was seven. Now I build satellites, race cars and firmware, and teach others to do the same.</p>
+      <div class="facts">
+        <span><b>Firmware engineer</b> at Xcelerium</span>
+        <span><b>BSc Electrical Engineering</b>, GIKI</span>
+      </div>
+    </div>
+    <figure>
+      <img class="ph" src="assets/img/convocation.jpg" alt="Izhar in convocation robes in front of the I love GIKI sign">
+    </figure>
+  </header>
+
+  <svg class="trace" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true"><path id="tr" d=""/></svg>
+
+  <div class="strip" aria-label="Photos from the bench">
+    <img class="ph" src="assets/img/laser-mill.jpg" alt="Laser milling a PCB at night" loading="lazy">
+    <img class="ph" src="assets/img/robocup-team.jpg" alt="RoboCup team with robots" loading="lazy">
+    <img class="ph" src="assets/img/iv-handheld.jpg" alt="Handheld I-V curve tracer" loading="lazy">
+    <img class="ph" src="assets/img/invictus.jpg" alt="Team Invictus with the aircraft" loading="lazy">
+    <img class="ph" src="assets/img/diode.jpg" alt="Analog oscilloscope trace" loading="lazy">
+    <img class="ph" src="assets/img/hh-car.jpg" alt="Team Hammerhead with their car" loading="lazy">
+    <img class="ph" src="assets/img/pcb-milled.jpg" alt="A milled PCB" loading="lazy">
+  </div>
+
+  <section class="chapter" id="story">
+    <div class="story">
+      <div>
+        <div class="chapter-head">
+          <div class="kicker">The story</div>
+          <h2>A village, a screwdriver, and <em>a lot of questions</em></h2>
+        </div>
+        <p style="font-size:1.12rem;margin-bottom:32px">Nobody around me could explain what was inside a machine, so I learned by opening it. I grew up in Urmar, a village outside Peshawar.</p>
+        <ol class="moments">
+          <li><div class="when">Age seven</div><div><h4>The first teardown</h4><p>I pulled the motor out of a toy RC car and turned it into a fan.</p></div></li>
+          <li><div class="when">School</div><div><h4>Building what I couldn't buy</h4><p>Emergency lights from relays and diodes, then a BLDC driver built to spin a motor salvaged from an old hard drive.</p></div></li>
+          <li><div class="when">GIKI</div><div><h4>A scholarship, then three teams</h4><p>The Chief Minister's Excellence Scholarship took me to GIK Institute, where I led electronics for a race car and an aircraft, and helped found the robotics team.</p></div></li>
+          <li><div class="when">Final year</div><div><h4>A CubeSat, built by hand</h4><p>From milled circuit boards to Zephyr firmware, it placed 3rd among more than 50 projects.</p></div></li>
+          <li><div class="when">Now</div><div><h4>Close to the silicon</h4><p>Firmware at Xcelerium, a Silicon Valley startup, writing the code that runs before anything else on a RISC-V chip wakes up.</p></div></li>
+        </ol>
+      </div>
+      <figure style="position:sticky;top:24px">
+        <img class="ph" src="assets/img/portrait.jpg" alt="Izhar standing in a wood-panelled office under framed portraits" loading="lazy">
+      </figure>
+    </div>
+  </section>
+
+  <section class="chapter" id="cubesat">
+    <div class="feature">
+      <figure class="main">
+        <video class="ph" src="assets/vid/cubesat.mp4" poster="assets/img/cubesat.jpg" muted loop playsinline autoplay preload="metadata" aria-label="The CubeSat running on the bench"></video>
+      </figure>
+      <div class="text">
+        <div class="kicker">Final-year project</div>
+        <h2>A CubeSat that <em>checks its own solar panels</em></h2>
+        <p>CubeSats were meant to make space affordable, yet most universities in countries like Pakistan still can't build one. I set out to make one cheaply, and gave it an on-board curve tracer that watches how its solar panels age in orbit.</p>
+        <p class="muted">I built every part in-house: I modified a milling machine to make the circuit boards, designed the electronics, and wrote the firmware on Zephyr RTOS.</p>
+        <div class="numbers">
+          <div><b>3rd place</b><small>among 50+ final-year projects</small></div>
+          <div><b>100% in-house</b><small>boards, hardware, firmware</small></div>
+        </div>
+      </div>
+    </div>
+    <div class="mosaic">
+      <figure class="tall"><img class="ph" src="assets/img/laser-mill.jpg" alt="Modified mill cutting a PCB with a laser" loading="lazy"></figure>
+      <figure><img class="ph" src="assets/img/pcb-milled.jpg" alt="Finished milled board" loading="lazy"></figure>
+      <figure><img class="ph" src="assets/img/iv-breadboard.jpg" alt="Curve tracer prototype on a breadboard" loading="lazy"></figure>
+      <figure class="tall"><img class="ph" src="assets/img/award.jpg" alt="Receiving a certificate at the Industrial Open House" loading="lazy"></figure>
+      <figure style="grid-column:span 2"><img class="ph" src="assets/img/iv-handheld.jpg" alt="Finished handheld curve tracer" loading="lazy" style="aspect-ratio:2/1"></figure>
+    </div>
+    <div class="pair">
+      <div><h4>Why a curve tracer?</h4><p>A solar panel's current-voltage curve is its health report. My tracer records it again and again, so it shows how the solar cells degrade over time, with no one there to inspect them.</p></div>
+      <div><h4>Why build it all myself?</h4><p>Ordering boards from abroad was slow and expensive, so I turned a milling machine into a PCB maker and cut each design cycle from weeks to hours. The hardest part was the tracer's load: instead of a specialised transistor built for linear operation, I made a cheap, ordinary transistor do the job.</p></div>
+    </div>
+  </section>
+
+  <section class="chapter" id="teams">
+    <div class="chapter-head">
+      <div class="kicker">Teams</div>
+      <h2>Three teams, <em>three hard jobs</em></h2>
+      <p>At GIKI I spent most of my time on student teams, in roles where the electronics had to work on the day.</p>
+    </div>
+
+    <article class="team">
+      <div class="media">
+        <video class="ph big" src="assets/vid/robocup.mp4" poster="assets/vid/robocup.jpg" muted loop playsinline preload="none" controls aria-label="RoboCup robots being built and tested"></video>
+        <figure class="inset"><img class="ph" src="assets/img/robocup-expo.jpg" alt="RoboCup team at an expo booth" loading="lazy"></figure>
+      </div>
+      <div class="text">
+        <div class="role">Founding member</div>
+        <h3>RoboCup Small Size League</h3>
+        <p>We started GIKI's robot-soccer team from nothing: the robots, the electronics and the training. I helped bring in new students and teach them the skills to keep the team going after us.</p>
+        <p class="muted">We also partnered with Sundar STEM School and trained their students, so the work reached children outside the university too.</p>
+      </div>
+    </article>
+
+    <article class="team flip">
+      <div class="media">
+        <video class="ph big" src="assets/vid/hammerhead-drive.mp4" poster="assets/vid/hammerhead-drive.jpg" muted loop playsinline preload="none" controls aria-label="The Hammerhead electric car driving"></video>
+        <figure class="inset"><img class="ph" src="assets/img/hh-poster.jpg" alt="Team Hammerhead poster naming Izhar Ahmad as Electrical Head" loading="lazy" style="object-position:0 88%"></figure>
+      </div>
+      <div class="text">
+        <div class="role">Electrical Head</div>
+        <h3>Team Hammerhead · Shell Eco-marathon</h3>
+        <p>COVID broke the handover between batches, and nobody was left who knew how the car's electrical system worked.</p>
+        <p class="muted">I rebuilt that knowledge from the component datasheets up, and got the team's electric car running for the first time.</p>
+      </div>
+    </article>
+
+    <article class="team">
+      <div class="media">
+        <img class="ph big" src="assets/img/invictus.jpg" alt="Team Invictus with the red SIRUS aircraft" loading="lazy">
+        <figure class="inset"><img class="ph" src="assets/img/invictus-2.jpg" alt="Two Invictus aircraft" loading="lazy"></figure>
+      </div>
+      <div class="text">
+        <div class="role">Avionics Head</div>
+        <h3>Team Invictus · AIAA Design/Build/Fly</h3>
+        <p>I led the avionics for SIRUS, the aircraft GIKI students designed and built to represent Pakistan at AIAA Design/Build/Fly.</p>
+        <p class="muted">I built the aircraft's autopilot.</p>
+      </div>
+    </article>
+  </section>
+
+  <section class="chapter" id="bench">
+    <div class="chapter-head">
+      <div class="kicker">On the bench</div>
+      <h2>Things I built <em>to understand them</em></h2>
+    </div>
+    <div class="bench">
+      <article>
+        <video class="ph" src="assets/vid/fm-demo.mp4" poster="assets/vid/fm-demo.jpg" playsinline preload="none" controls aria-label="A phone tuned to 103.9 plays music from Izhar's FM transmitter"></video>
+        <h4>An FM transmitter, from scratch</h4>
+        <p>I designed the circuits myself and checked the spectrum on a scope. In the clip, a phone tuned to 103.9 plays music sent from my laptop through my transmitter. Press play for sound.</p>
+      </article>
+      <article>
+        <div class="duo">
+          <img class="ph" src="assets/img/diode.jpg" alt="Analog oscilloscope showing a diode waveform" loading="lazy">
+          <img class="ph" src="assets/img/diode-2.jpg" alt="Analog oscilloscope showing switching levels" loading="lazy">
+        </div>
+        <h4>How parts really behave</h4>
+        <p>On an old analog Kenwood scope, I put diodes under different conditions and modelled how they actually behave, rather than how the textbook says they should, and modelled several of their characteristics.</p>
+      </article>
+      <article>
+        <div class="duo">
+          <img class="ph" src="assets/img/desk-1.jpg" alt="Desk with oscilloscope and microcontroller boards" loading="lazy">
+          <img class="ph" src="assets/img/desk-2.jpg" alt="Workbench with scope, power supply and soldering station" loading="lazy">
+        </div>
+        <h4>Every desk I've had</h4>
+        <p>Wherever I work, the same three things end up on the desk: a scope, a microcontroller and a soldering iron.</p>
+      </article>
+      <article class="quiet">
+        <div class="kicker">Now</div>
+        <h4>RISC-V at Xcelerium</h4>
+        <p>A bootloader, trap and interrupt handling, and a UART driver layer for the CVA6 core, written with no operating system underneath.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="chapter" id="community">
+    <div class="chapter-head">
+      <div class="kicker">Giving back</div>
+      <h2>Making the path <em>easier for the next person</em></h2>
+    </div>
+    <div class="give">
+      <div><h4>Training new team members</h4><p>On the RoboCup team I helped recruit and train the students who would take it over, so its knowledge wouldn't disappear the way Hammerhead's once did.</p></div>
+      <div><h4>Sundar STEM School</h4><p>We have trained more than 20 of their students in robotics and electronics, and the training is still running.</p></div>
+      <div><h4>An embedded systems community</h4><p>I run a WhatsApp group where students ask about embedded systems and I point them to a path into the field I had to figure out alone. More than 100 students have joined in the last six months.</p></div>
+      <div><h4>Teaching juniors</h4><p>A session for my department on how to study embedded systems and how to find work in Pakistan's embedded industry.</p></div>
+    </div>
+  </section>
+
+  <section class="chapter" id="research">
+    <div class="research">
+      <div class="kicker">What I want to research</div>
+      <blockquote>Instruments that measure the world reliably, cheaply, and <em>where nobody will come to fix them.</em></blockquote>
+      <p>My CubeSat's curve tracer watches a solar panel age where no technician can reach it. The same problem exists on the ground: solar systems, sensors and devices in villages like mine fail quietly, and nobody measures why. I want to build low-power sensing and self-monitoring hardware that makes those systems understandable and repairable.</p>
+      <p>At the Media Lab, I want to work where three groups meet: Space Enabled, on low-cost satellites that serve the places usually left out; Responsive Environments, on sensing hardware that runs for years on little power; and Nano-Cybernetic Biotrek, on electronics small enough to listen to living systems. Each of them asks the question my CubeSat asks: how do you build an instrument that keeps measuring the truth when nobody can reach it?</p>
+    </div>
+  </section>
+
+  <section class="chapter" id="why">
+    <div class="commit">
+      <div class="chapter-head" style="margin:0">
+        <div class="kicker">Why</div>
+        <h2>Two commitments</h2>
+      </div>
+      <div>
+        <p>I want to spend my career in research, building hardware that measures and powers the world more fairly.</p>
+        <p>I also remember where I started. In my village there were no labs and no mentors, just broken devices and questions. A scholarship opened the door for me, and I know how many equally curious students never get that chance.</p>
+        <p>So alongside research, I'll bring this work home to Pakistan through mentorship, hands-on learning and quality education, so the next kid taking apart a radio in a village has a path into science.</p>
+        <div class="life">
+          <span><b>7 km</b> runs</span>
+          <span><b>Gym</b> regular</span>
+          <span><b>Rubab</b> at music school</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="close" id="contact">
+    <div class="kicker">Contact</div>
+    <h2>Let's build <em>something.</em></h2>
+    <div class="contact">
+      <span class="addr" id="mail">izharahmad805@gmail.com</span>
+      <button type="button" id="copy">Copy email</button>
+    </div>
+    <p class="muted"><a href="https://github.com/izharahmad805">GitHub</a> · <a href="https://www.linkedin.com/in/izhar-ahmad-332674251">LinkedIn</a></p>
+  </section>
+
+  <footer>Izhar Ahmad · 2026</footer>
+</div>
+
+<script>
+(function(){
+  var pts=[],w=1200,h=60;
+  for(var x=0;x<=w;x+=3){
+    var env=Math.exp(-Math.pow((x-600)/260,2));
+    var y=h/2-env*22*Math.sin(x/w*Math.PI*30);
+    pts.push((x?"L":"M")+x+" "+y.toFixed(1));
+  }
+  document.getElementById("tr").setAttribute("d",pts.join(" "));
+  if(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches){
+    document.querySelectorAll("video[autoplay]").forEach(function(v){v.removeAttribute("autoplay");v.pause();v.controls=true;});
+  }
+  var b=document.getElementById("copy");
+  b.addEventListener("click",function(){
+    var t=document.getElementById("mail").textContent;
+    function sel(){var r=document.createRange();r.selectNodeContents(document.getElementById("mail"));var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent="Selected, press Ctrl+C";}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){b.textContent="Copied";},sel);}else sel();
+  });
+})();
+</script>
+</body>
+</html>
